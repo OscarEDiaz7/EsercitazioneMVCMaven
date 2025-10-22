@@ -15,6 +15,8 @@ package esercizio01;
 
 public class Prodotto {
 	
+	
+	
 	private String codiceUnivoco;
 	private String titolo;
 	private double prezzo;
@@ -63,8 +65,8 @@ public class Prodotto {
 
 	@Override
 	public String toString() {
-		return "Prodotto [codiceUnivoco=" + codiceUnivoco + ", titolo=" + titolo + ", prezzo=" + prezzo
-				+ ", quantitaDisponibile=" + quantitaDisponibile + "]";
+		return "Prodotto " + codiceUnivoco + ":" + titolo + ", prezzo: " + prezzo
+				+ ", disponibilità: " + quantitaDisponibile + "]";
 	}
 	
 }
