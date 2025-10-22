@@ -21,6 +21,12 @@ public class AcquistoView {
 		boolean continua = true;
 
 		while (continua) {
+			
+			System.out.println("Nome del cliente?");
+			
+			String cliente = sc.nextLine();
+			
+			controllo.creaOrdine(cliente);
 
 			System.out.println("Prodotti disponibili:");
 
@@ -47,6 +53,8 @@ public class AcquistoView {
 		}
 		
 		System.out.println("Ecco il totale: " + controllo.getTotale());
+		
+		System.out.println("Ordini effettuati: " + controllo.getOrdine());
 		
 		sc.close();
 		

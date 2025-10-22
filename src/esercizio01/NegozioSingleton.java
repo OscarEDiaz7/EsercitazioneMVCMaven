@@ -10,11 +10,11 @@ public class NegozioSingleton {
 
 	private NegozioSingleton() {
 
-		prodotti.put("40", new Prodotto("40", "erba", 10.0, 5));
-		prodotti.put("50", new Prodotto("50", "fumo", 20.0, 1));
-		prodotti.put("60", new Prodotto("60", "erba buona", 30.0, 20));
-		prodotti.put("70", new Prodotto("70", "fumo buono", 40.0, 15));
-		prodotti.put("30", new Prodotto("30", "prodotto segreto", 50.0, 10));
+		prodotti.put("40", new Prodotto("40", "a", 10.0, 5));
+		prodotti.put("50", new Prodotto("50", "b", 20.0, 1));
+		prodotti.put("60", new Prodotto("60", "c", 30.0, 20));
+		prodotti.put("70", new Prodotto("70", "d", 40.0, 15));
+		prodotti.put("30", new Prodotto("30", "e", 50.0, 10));
 
 	};
 
