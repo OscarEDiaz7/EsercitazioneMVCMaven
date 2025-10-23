@@ -16,7 +16,6 @@ package esercizio01;
 public class Prodotto {
 	
 	
-	
 	private String codiceUnivoco;
 	private String titolo;
 	private double prezzo;

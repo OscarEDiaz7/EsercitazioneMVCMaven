@@ -7,9 +7,9 @@ public class AcquistoController {
 	private Ordine ordine;
 
 	public void creaOrdine(String nomeCliente) {
-		
+
 		ordine = new Ordine(nomeCliente);
-			}
+	}
 
 	public void acquistaS(String codice, int quantita) {
 

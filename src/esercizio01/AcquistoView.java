@@ -5,6 +5,8 @@ import java.util.Scanner;
 public class AcquistoView {
 
 	public static void main(String[] args) {
+		
+		
 
 		Scanner sc = new Scanner(System.in);
 
@@ -21,11 +23,11 @@ public class AcquistoView {
 		boolean continua = true;
 
 		while (continua) {
-			
+
 			System.out.println("Nome del cliente?");
-			
+
 			String cliente = sc.nextLine();
-			
+
 			controllo.creaOrdine(cliente);
 
 			System.out.println("Prodotti disponibili:");
@@ -44,6 +46,13 @@ public class AcquistoView {
 			System.out.println("Quanti prodotti?");
 
 			int quantita = sc.nextInt();
+
+			/// AGGIUNTO
+						if (quantita == 0) {
+							System.out.println("Ciao!");
+							continua = false;
+						}
+
 			sc.nextLine();
 
 			controllo.acquistaS(codice, quantita);
@@ -51,13 +60,15 @@ public class AcquistoView {
 			continua = false;
 
 		}
+
+		//// AGGIUNTO
+		///controllo.cambiaStato();
 		
 		System.out.println("Ecco il totale: " + controllo.getTotale());
-		
+
 		System.out.println("Ordini effettuati: " + controllo.getOrdine());
-		
+
 		sc.close();
-		
 
 	}
 
