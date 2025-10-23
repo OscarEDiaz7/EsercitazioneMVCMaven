@@ -2,56 +2,24 @@ package esercizio01;
 
 public class RigaOrdine {
 	
-	private Prodotto prodottoRiga;
-	
-	private int quantitaRiga;
-	
-	private double totaleRiga;
+    private Prodotto prodotto;
+    private int quantita;
 
-	public RigaOrdine(Prodotto prodottoRiga, int quantitaRiga) {
-		this.prodottoRiga = prodottoRiga;
-		this.quantitaRiga = quantitaRiga;
-		this.totaleRiga = prodottoRiga.getPrezzo() * totaleRiga;
-	}
-	
+    public RigaOrdine(Prodotto prodotto, int quantita) {
+        this.prodotto = prodotto;
+        this.quantita = quantita;
+    }
 
-	public Prodotto getProdottoRiga() {
-		return prodottoRiga;
-	}
+    public double getSubTotale() {
+        return prodotto.getPrezzo() * quantita;
+    }
 
-	public void setProdottoRiga(Prodotto prodottoRiga) {
-		this.prodottoRiga = prodottoRiga;
-	}
+    public Prodotto getProdotto() { return prodotto; }
+    public int getQuantita() { return quantita; }
 
-	public int getQuantitaRiga() {
-		return quantitaRiga;
-	}
-
-	public void setQuantitaRiga(int quantitaRiga) {
-		this.quantitaRiga = quantitaRiga;
-	}
-
-	public double getTotaleRiga() {
-		return totaleRiga;
-	}
-
-	public void setTotaleRiga(double totaleRiga) {
-		this.totaleRiga = totaleRiga;
-	}
-
-
-	@Override
-	public String toString() {
-		return "Prodotto:" + prodottoRiga + ", quantita=" + quantitaRiga + ", totale="
-				+ totaleRiga + "]";
-	}
-	
-	
-	
-	
-	
-	
-	
-	
-
+    @Override
+    public String toString() {
+        return prodotto.getTitolo() + " x " + quantita + " = €" + getSubTotale();
+    }
 }
+

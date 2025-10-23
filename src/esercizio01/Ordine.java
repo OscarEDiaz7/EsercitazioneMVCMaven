@@ -1,106 +1,38 @@
 package esercizio01;
 
-import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
+	import java.time.Year;
+	import java.util.ArrayList;
+	import java.util.List;
 
-public class Ordine {
+	public class Ordine {
+	   
+		
+		private static int contatore = 1;
+	    private String numeroOrdine;
+	    private List<RigaOrdine> righe = new ArrayList<>();
+	    private StatoOrdine stato;
 
-	private List<RigaOrdine> righe = new ArrayList<>();
+	    public Ordine() {
+	        this.numeroOrdine = "OL" + Year.now().getValue() + (contatore++);
+	        this.stato = StatoOrdine.RICEVUTO;
+	    }
 
-//	private static String numeroOrdine;
-//	
-//	private static int progressivo;
+	    public void aggiungiRiga(RigaOrdine r) {
+	        righe.add(r);
+	    }
 
-//	public static String generaNumeroOrdine() {
-//		int annoCorrente = LocalDate.now().getYear();
-//		numeroOrdine = ("OL" + annoCorrente + progressivo);
-//		progressivo++;
-//		return numeroOrdine;
-//	}
+	    public double getTotale() {
+	        return righe.stream().mapToDouble(RigaOrdine::getSubTotale).sum();
+	    }
 
-//	String cliente;
-//
-//	/// AGGIUNTO
-//	StatoLav statolavorazione;
-//
-//	public StatoLav cambiaStato() {
-//
-//		if (this.statolavorazione == null) {
-//			this.statolavorazione = StatoLav.RICEVUTO;
-//			System.out.println("Stato da nullo a ricevuto");
-//			return this.statolavorazione;
-//		}
-//
-//		else
-//			switch (this.statolavorazione) {
-//
-//			case RICEVUTO: {
-//				this.statolavorazione = StatoLav.INLAVORAZIONE;
-//				break;
-//			}
-//			case INLAVORAZIONE: {
-//				this.statolavorazione = StatoLav.SPEDITO;
-//				break;
-//			}
-//			case SPEDITO: {
-//				this.statolavorazione = StatoLav.ARCHIVIATO;
-//				break;
-//			}
-//			case ARCHIVIATO: {
-//				System.out.println("Ordine già archiviato");
-//				break;
-//			}
-//			}
-//
-//		return this.statolavorazione;
-//
-//	}
+	    public StatoOrdine getStato() { return stato; }
+	    public void setStato(StatoOrdine stato) { this.stato = stato; }
+	    public String getNumeroOrdine() { return numeroOrdine; }
 
-	public void aggiungiRiga(RigaOrdine riga) {
-		righe.add(riga);
+	    @Override
+	    public String toString() {
+	        return "Ordine " + numeroOrdine + " - Stato: " + stato + "\n" + righe + "\nTotale: €" + getTotale();
+	    }
 	}
 
-	public Ordine(String cliente) {
-		this.cliente = cliente;
-		this.statolavorazione = StatoLav.RICEVUTO;
-	};
 
-	public Ordine(List<RigaOrdine> righe, String numeroOrdine, String cliente) {
-		super();
-		this.righe = righe;
-		this.numeroOrdine = numeroOrdine;
-		this.cliente = cliente;
-		this.statolavorazione = StatoLav.RICEVUTO;
-	}
-
-	public List<RigaOrdine> getRighe() {
-		return righe;
-	}
-
-	public void setRighe(List<RigaOrdine> righe) {
-		this.righe = righe;
-	}
-
-	public String getNumeroOrdine() {
-		return numeroOrdine;
-	}
-
-	public void setNumeroOrdine(String numeroOrdine) {
-		this.numeroOrdine = numeroOrdine;
-	}
-
-	public String getCliente() {
-		return cliente;
-	}
-
-	public void setCliente(String cliente) {
-		this.cliente = cliente;
-	}
-
-	@Override
-	public String toString() {
-		return "Ordine [righe=" + righe + ", numeroOrdine=" + numeroOrdine + ", cliente=" + cliente + "]";
-	}
-
-}
